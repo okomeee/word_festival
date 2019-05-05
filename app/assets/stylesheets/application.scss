@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+body {
+  background-color: rgb(11, 34, 50);
+}
+
+.word {
+  color: yellow;
+}
