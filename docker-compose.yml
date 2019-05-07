@@ -26,8 +26,8 @@ services:
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: password
       MYSQL_HOST: mysql
-      # RAILS_ENV: development
-      RAILS_ENV: production
+      RAILS_ENV: development
+      # RAILS_ENV: production
     depends_on:
       - mysql
     links:

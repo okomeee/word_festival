@@ -53,5 +53,5 @@ test:
 production:
   <<: *default
   database: pepabo_production
-  username: pepabo
+  username: root
   password: <%= ENV.fetch('MYSQL_PASSWORD') %>
