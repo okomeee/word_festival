@@ -18,6 +18,7 @@ default: &default
   socket: /var/lib/mysql/mysql.sock
   # password: <%= ENV.fetch('MYSQL_PASSWORD') %>
   # socket: /tmp/mysql.sock
+  host: mysql
 
 development:
   <<: *default
