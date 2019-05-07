@@ -1,0 +1,11 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - pwd
+    - /usr/local/bin/docker-compose ps
+    - /usr/local/bin/docker-compose down
+    - /usr/local/bin/docker-compose build
+    - /usr/local/bin/docker-compose up -d
