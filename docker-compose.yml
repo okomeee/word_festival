@@ -9,7 +9,7 @@ services:
     volumes:
     - data
     ports:
-    - "3306:3306"
+    - 3306
 
   app: &app_base
     build:  
