@@ -32,7 +32,7 @@ jQuery ->
     console.log(color)
     return color
 
-  # setInterval("location.reload()", 600000); # 10分に1回word更新
+  setInterval("location.reload()", 600000); # 10分に1回word更新
   # ViewPortを取得
   vw = window.innerWidth;
   vh = window.innerHeight;
