@@ -1,4 +1,4 @@
-<div class="mx-auto" style="margin-top:20vh;">
+<div class="mx-auto" style="margin-top:20vh; margin-bottom:5rem;">
   <div class="d-flex">
     <p class="title mx-auto mb-0">
       PEPABO MAKER FESTIVAL
@@ -21,6 +21,12 @@
   </div>
   <div class="d-flex my-3">
     <%= link_to "感想を繋げる...", note_path, class: "btn btn-primary w-50 mx-auto" %>
+  </div>
+  <div class="d-flex mt-1">
+    <p class="count mx-auto">
+      *このページは表示データ更新のため接続から10分ごとに自動リロードします<br>
+      *タブレットまたはパソコンからの閲覧を推奨しています(^^)
+    </p>
   </div>
   <% @posts.each_with_index do |post, idx| %>
     <p class="word<%= idx %>" style="font-size: 1.5rem; position: absolute;"><%= post.word %></p>
