@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
-  LOOPNUM=50
+  LOOPNUM=100
   getRandomIntInclusive = (min, max) ->
     min = Math.ceil(min)
     max = Math.floor(max)
@@ -32,7 +32,7 @@ jQuery ->
     console.log(color)
     return color
 
-  # setInterval("location.reload()", 300000); # 5分に1回word更新
+  # setInterval("location.reload()", 600000); # 10分に1回word更新
   # ViewPortを取得
   vw = window.innerWidth;
   vh = window.innerHeight;

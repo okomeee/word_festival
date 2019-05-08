@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.all.sample(100)
     @post = Post.new
     @count = Post.count
   end
