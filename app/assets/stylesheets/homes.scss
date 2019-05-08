@@ -1,3 +1,39 @@
 // Place all the styles related to the Homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('https://fonts.googleapis.com/css?family=Exo+2:700');
+
+.title {
+  // color: rgba(235, 129, 235, 0.8);
+  /* フォントサイズなどを任意で指定する */
+  @media screen and (max-width: 480px) {
+    font: bold 1.5rem 'Exo 2', sans-serif !important;
+  }
+  font: bold 3.5rem 'Exo 2', sans-serif;
+
+  
+  /* 背景グラデーションを指定・幅を 200% にしておく */
+  background: linear-gradient(to left, rgba(113, 198, 255, 0.9) 0%, rgba(255, 127, 249, 0.9) 14.28%, rgba(113, 198, 255, 0.9) 28.56%, rgba(255, 127, 249, 0.9) 42.85%, rgba(113, 198, 255, 0.9) 57.14%, rgba(255, 127, 249, 0.9) 71.42%, rgba(113, 198, 255, 0.9) 100%) 0% center / 200% auto;
+  
+  /* 背景画像を文字でマスクする */
+          background-clip: text;
+  -webkit-background-clip: text;
+  
+  /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
+  -webkit-text-fill-color: transparent;
+  
+  /* アニメーション指定 */
+  animation: example 4s linear infinite;
+}
+
+@keyframes example {
+  to { background-position-x: 200%; }
+}
+
+.sub-title {
+  color: rgba(255,255,255,0.8);
+}
+
+.count {
+  color: rgba(255,255,255,0.8);
+}

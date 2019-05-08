@@ -1,0 +1,31 @@
+<div class="mx-auto mt-5">
+  <div class="d-flex">
+    <p class="title mx-auto mb-0">
+      PEPABO MAKER FESTIVAL
+    </p>
+  </div>
+  <div class="d-flex">
+    <p class="sub-title mx-auto mb-0">
+      イベントの感想を文章に！<span style="color: rgba(255,255,0,0.8);">(^^)</span>
+    </p>
+  </div>
+  <div class="d-flex">
+    <p class="mx-auto" style="color: rgba(255,255,255,0.9);">
+      コメント総数 => <span style="font-size: 1.5rem; color: rgba(255,255,0,0.9);"><%= @posts.length %></span>
+    </p>
+  </div>
+  <div class="d-flex mt-1">
+    <p class="mx-auto mb-0">
+      <span style="font-weight: bold;color: rgba(255, 255, 0, 0.8)">KAppDevClub</span> <span style="color: rgba(255,255,255,0.8);">@</span> <span style="font-weight: bold;color: rgba(0, 255, 255, 0.8);">KagoshimaUniv</span>
+    </p>
+  </div>
+  <div class="d-flex">
+    <div class="text-white mx-auto mt-2" style="font-size: 1.5rem; width: 90vw; height: 55vh; overflow: scroll;">
+      <span style="white-space: pre-wrap;"><%= @msg %></span>
+    </div>
+  </div>
+
+  <div class="d-flex my-3 fixed-bottom">
+    <%= link_to "戻る", root_path, class: "btn btn-danger w-50 mx-auto" %>
+  </div>
+</div>

@@ -1,6 +1,10 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <div class="row">
-    <%= form.text_field :word, class: "form-control col-9" %>
-    <%= form.submit "送信", class: "btn btn-primary col-3" %>
+<div class="fixed-bottom bg-dark">
+  <div class="container">
+    <%= form_with(model: post, local: true) do |form| %>
+      <div class="row my-3">
+        <%= form.text_field :word, class: "form-control col-8", placeholder: "10文字以内で入力してね！" %>
+        <%= form.submit "(｢･ω･)｢", class: "btn btn-info col-4" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

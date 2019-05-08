@@ -2,86 +2,73 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
-  setInterval("location.reload()", 30000);
+  LOOPNUM=50
+  getRandomIntInclusive = (min, max) ->
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    Math.floor(Math.random() * (max - min + 1)) + min
+
+  shuffule = (array) ->
+    i = array.length - 1
+    while i >= 0
+      # 0~iのランダムな数値を取得
+      rand = Math.floor(Math.random() * (i + 1))
+      # 配列の数値を入れ替える
+      tmp = array[i]
+      array[i] = array[rand]
+      array[rand] = tmp
+      i--
+    return array
+
+  setColor = () ->
+    color = []
+    step = 0
+    while step < LOOPNUM
+      num1 = getRandomIntInclusive(0,255).toString(16).toUpperCase()
+      num2 = getRandomIntInclusive(0,255).toString(16).toUpperCase()
+      num3 = getRandomIntInclusive(0,255).toString(16).toUpperCase()
+      color.push( "#" + num1 + num2 + num3 )
+      step++
+    console.log(color)
+    return color
+
+  setInterval("location.reload()", 300000); # 5分に1回word更新
   # ViewPortを取得
   vw = window.innerWidth;
   vh = window.innerHeight;
 
-  w = [
-    $('.word0'),
-    $('.word1'),
-    $('.word2'),
-    $('.word3'),
-    $('.word4'),
-    $('.word5'),
-    $('.word6'),
-    $('.word7'),
-    $('.word8'),
-    $('.word9'),
-  ];
+  w = [];
+  step = 0
+  while step < LOOPNUM
+    w.push($(".word"+step))
+    step++
 
-  w_pos = [
-    {
-      'x': vw * 1 / 10
-      'y': vh * 1 / 1000
-    }
-    {
-      'x': vw * 2 / 10
-      'y': vh * 2 / 1000
-    }
-    {
-      'x': vw * 3 / 10
-      'y': vh * 13 / 1000
-    }
-    {
-      'x': vw * 4 / 10
-      'y': vh * 2 / 1000
-    }
-    {
-      'x': vw * 5 / 10
-      'y': vh * 19 / 1000
-    }
-    {
-      'x': vw * 6 / 10
-      'y': vh * 4 / 1000
-    }
-    {
-      'x': vw * 7 / 10
-      'y': vh * 1 / 1000
-    }
-    {
-      'x': vw * 8 / 10
-      'y': vh * 6 / 1000
-    }
-    {
-      'x': vw * 9 / 10
-      'y': vh * 1 / 1000
-    }
-    {
-      'x': vw * 10 / 10
-      'y': vh * 1 / 1000
-    }
-  ]
-  color = [
-    'lime',
-    'aqua',
-    'yellow',
-    'red',
-    'fuchsia',
-    'silver',
-    'white',
-    'lime',
-    'aqua',
-    'yellow'
-  ]
+  w_pos = [];
+  step = 0
+  while step < LOOPNUM
+    x = getRandomIntInclusive(1,1000)
+    y = getRandomIntInclusive(1,1000)
+    w_pos.push({
+      'x': vw * x / 1000
+      'y': vh * y / 1000
+    })
+    step++
 
+  cnt = 0
+  color = setColor()
   # ループ処理
   loop_do = ->
     # requestAnimFrame loop_do
-    setTimeout loop_do, 1000 / 45
+    setTimeout loop_do, 1000 / 25
     step = 0
-    while step < 10
-      random = Math.random() * 11;
+    while step < LOOPNUM
+      if step % 2 == 0
+        random = getRandomIntInclusive(1, 3);
+      else if step % 3 == 0
+        random = getRandomIntInclusive(4, 6);
+      else
+        random = getRandomIntInclusive(7, 9);
+
       n = step
       # ループ毎にxを加算
       w_pos[n].x += random
@@ -92,12 +79,18 @@ jQuery ->
         'left': String(w_pos[n].x) + 'px'
         'color': color[n]
       
-      if w_pos[n].x > vw or w_pos[n].x < 0
+      if w_pos[n].x > vw - w[n].outerWidth(true) * 1.1 or w_pos[n].x < 0
         w_pos[n].x = 0
-      if w_pos[n].y > vh or w_pos[n].y < 0
+      if w_pos[n].y > vh - w[n].outerHeight(true) * 1.1 or w_pos[n].y < 0
         w_pos[n].y = 0
       
       step++
+    cnt++
+    if cnt > 1000
+     color = setColor()
+     cnt = 0
+
+  
     
 
   window.requestAnimFrame = do ->

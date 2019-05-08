@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pepabo</title>
+    <title>PepaboMakerFestival</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <% unless controller.action_name == "note" %>
+    <script>
+      setTimeout(function() {
+        $(".alert").remove();
+      }, 3000);
+    </script>
+    <% end %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container mt-4">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name %>">
+          <%= msg.html_safe %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

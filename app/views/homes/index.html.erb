@@ -1,16 +1,30 @@
-<div class="mt-3">
-  <p style="font-size: 3rem; position: absolute; top:35vh; left:32vw; color: rgba(255,255,0,0.8);">
-    Pepabo Maker Festival
-  </p>
-  <p style="font-size: 3rem; position: absolute; top:42vh; left:30vw; color: rgba(255,255,255,0.8);">
-    今日の感想を教えて<span style="color: rgba(255,255,0,0.8);">(^^)</span>
-  </p>
+<div class="mx-auto" style="margin-top:20vh;">
+  <div class="d-flex">
+    <p class="title mx-auto mb-0">
+      PEPABO MAKER FESTIVAL
+    </p>
+  </div>
+  <div class="d-flex">
+    <p class="sub-title mx-auto">
+      イベントの感想を一言で！<span style="color: rgba(255,255,0,0.8);">(^^)</span>
+    </p>
+  </div>
+  <div class="d-flex mt-1">
+    <p class="mx-auto">
+      <span style="font-weight: bold;color: rgba(255, 255, 0, 0.8)">KAppDevClub</span> <span style="color: rgba(255,255,255,0.8);">@</span> <span style="font-weight: bold;color: rgba(0, 255, 255, 0.8);">KagoshimaUniv</span>
+    </p>
+  </div>
+  <div class="d-flex mt-1">
+    <p class="count mx-auto">
+      現在のコメント数 => <span style="font-size: 2rem; color: rgba(255,255,0,0.9);"><%= @count %></span>
+    </p>
+  </div>
+  <div class="d-flex my-3">
+    <%= link_to "感想を繋げる...", note_path, class: "btn btn-primary w-50 mx-auto" %>
+  </div>
   <% @posts.each_with_index do |post, idx| %>
-    <p class="word word<%= idx %>" style="font-size: 3rem; position: absolute;"><%= post.word %></p>
+    <p class="word<%= idx %>" style="font-size: 1.5rem; position: absolute;"><%= post.word %></p>
   <% end %>
 </div>
-<div class="fixed-bottom bg-dark">
-  <div class="container my-3">
-    <%= render "form", post: @post %>
-  </div>
-</div>
+
+<%= render "form", post: @post %>
