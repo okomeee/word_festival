@@ -3,6 +3,7 @@
     <%= form_with(model: post, local: true) do |form| %>
       <div class="row my-3">
         <%= form.text_field :word, class: "form-control col-8", placeholder: "10文字以内で入力してね！" %>
+        <%= form.hidden_field :token, value: "7ZRerpJrdSzKzsqm3SFhVcm0cTNhRfqTdhF0pfXHKNDCSgWNqWVXKWT2avXiCjNTbazZ7ovVxJQG4Y-GrFObq_rH0NqMzNs1xLE-_SmX15S-UbjOu8yE6zpssTTWR6lQRwC6kg" %>
         <%= form.submit "(｢･ω･)｢", class: "btn btn-info col-4" %>
       </div>
     <% end %>
